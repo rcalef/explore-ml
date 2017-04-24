@@ -38,12 +38,12 @@ def main(training_images= None,
     shuf_te_img,shuf_te_lbl = shuffle_dataset(te_imgs,te_lbls)
 
     # Make the validation set
-    final_tr_img,final_tr_lbl,valid_img,valid_lbl = make_validation_set(shuf_tr_img,
-                                                                        shuf_tr_lbl,
-                                                                        validation_size)
+    f_tr_img,f_tr_lbl,valid_img,valid_lbl = make_validation_set(shuf_tr_img,
+                                                                shuf_tr_lbl,
+                                                                validation_size)
     # Finally write it all out as a pickle
-    write_pickled_data(final_tr_img,
-                       final_tr_lbl,
+    write_pickled_data(f_tr_img,
+                       f_tr_lbl,
                        valid_img,
                        valid_lbl,
                        shuf_te_img,

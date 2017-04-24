@@ -13,11 +13,10 @@ def shuffle_dataset(data,labels):
     return data[indices],labels[indices]
 
 def make_validation_set(data,labels,nsamples=10000):
-    shuf_data,shuf_labels = shuffle_dataset(data,labels)
-    new_data = shuf_data[:nsamples]
-    new_labels = shuf_data[:nsamples]
-    valid_data = shuf_data[-nsamples:]
-    valid_labels = shuf_data[-nsamples:]
+    new_data = data[:nsamples]
+    new_labels = labels[:nsamples]
+    valid_data = data[-nsamples:]
+    valid_labels = labels[-nsamples:]
     return new_data,new_labels,valid_data,valid_labels
 
 def write_pickled_data(tr_img,
@@ -29,7 +28,7 @@ def write_pickled_data(tr_img,
                        output):
     data = {
         "train_images"  : tr_img,
-        "trainl_labels" : tr_label,
+        "train_labels" : tr_label,
         "valid_images"  : val_img,
         "valid_labels"  : val_label,
         "test_images"   : ts_img,
