@@ -19,6 +19,9 @@ def make_validation_set(data,labels,nsamples=10000):
     valid_labels = labels[-nsamples:]
     return new_data,new_labels,valid_data,valid_labels
 
+def flatten_data(data):
+    return data.reshape((data.shape[0], data.shape[1] * data.shape[2]))
+
 def write_pickled_data(tr_img,
                        tr_label,
                        val_img,
@@ -35,3 +38,7 @@ def write_pickled_data(tr_img,
         "test_labels"   : ts_label
     }
     pickle.dump(data,open(output,"wb"))
+
+def read_pickled_data(pickle_fn):
+    data = pickle.load(open(pickle_fn,"rb"))
+    return data
